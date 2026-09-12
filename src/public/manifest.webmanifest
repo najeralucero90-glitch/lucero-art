@@ -1,0 +1,13 @@
+{
+  "name":"Lucero Art",
+  "short_name":"Lucero Art",
+  "description":"Arte que habla de ti",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#fbf3ef",
+  "theme_color":"#76508f",
+  "icons":[
+    {"src":"/assets/lirio.jpg","sizes":"192x192","type":"image/jpeg"},
+    {"src":"/assets/lirio.jpg","sizes":"512x512","type":"image/jpeg"}
+  ]
+}
