@@ -20,14 +20,13 @@ jobs:
           node-version: 22
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm install && npm install -D typescript
 
       - name: Construir aplicación web
         run: npm run build
 
       - name: Instalar Capacitor
-        run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+        run: npm install @capacitor/core @capacitor/cli @capacitor/android 
 
       - name: Crear proyecto Android
         run: |
