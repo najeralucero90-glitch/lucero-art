@@ -1,55 +1,27 @@
-name: build Lucero Art APK 
+name: build Lucero Art APK
 
 on:
   workflow_dispatch:
   push:
     branches:
-      -	main
+      - main
 
 jobs:
   build-android:
     runs-on: ubuntu-latest
 
     steps:
-    -	name: Descargar código
-     uses: actions/checkout@v4
+      - name: Descargar código
+        uses: actions/checkout@v4
 
-    -	name: Configurar Node.js
-     uses: actions/setup-node@v4
-     with:
-        node-version: 20
-        cache: npm
-    -	name: Instalar dependencias
-     run: npm install
-
-    -	name: Compilar aplicación web
-     run: npm run build
-
-    -	name: Instalar Capacitor
-     run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/android
-
-    -	name: Crear proyecto Android
-      run: |
-          If [ ¡ -d “android” ]; then
-            Npx cap add android
-          Fi
-          Npx cap sync android
-          -	name: Configurar Java
-            uses: actions/setup-java@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          Distribution: temurin
-          Java-version: 17
+          node-version: 20
+          cache: npm
 
-    -	name: Dar permisos a Gradle
-      run: chmod +x android/gradlew
+      - name: Instalar dependencias
+        run: npm install
 
-    -	name: Compilar APK
-     run: |
-          Cd android
-          ./gradlew assembleDebug
-          -	name: Guardar APK
-            uses: actions/upload-artifact@v4
-      with:
-          name: Lucero-Art-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Construir aplicación
+        run: npm run build
