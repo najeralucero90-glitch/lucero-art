@@ -18,9 +18,43 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Instalar dependencias
         run: npm install
 
-      - name: Construir aplicación
+      - name: Construir aplicación web
         run: npm run build
+
+      - name: Instalar Capacitor
+        run: |
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+
+      - name: Crear proyecto Android
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+      - name: Sincronizar aplicación con Android
+        run: npx cap sync android
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Dar permisos a Gradle
+        run: chmod +x android/gradlew
+
+      - name: Construir APK
+        run: |
+          cd android
+          ./gradlew assembleDebug
+
+      - name: Subir APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucero-Art-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
