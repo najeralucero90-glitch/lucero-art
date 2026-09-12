@@ -1,13 +1,13 @@
 import React,{useEffect,useMemo,useState}from"react";
 import{createRoot}from"react-dom/client";
-import{Menu,Bell,Heart,ArrowRight,Home,Palette,Pencil,MessageCircle,UserRound,Flower2,PawPrint,Mountain,Horse,Search,X,ShoppingBag,Trash2,CheckCircle,Plus,Settings,LogOut,Phone,Package,ChevronLeft,Lock,User,Truck,CreditCard}from"lucide-react";
+import{Menu,Bell,Heart,ArrowRight,Home,Palette,Pencil,MessageCircle,UserRound,Flower2,PawPrint,Mountain,Search,X,ShoppingBag,Trash2,CheckCircle,Plus,Settings,LogOut,Phone,Package,ChevronLeft,Lock,User,Truck,CreditCard}from"lucide-react";
 import"./styles.css";
 
 const cats=[
 {name:"Dibujos disponibles",icon:Flower2,tone:"pink"},
 {name:"Dibujos personalizados",icon:PawPrint,tone:"green"},
 {name:"Paisajes",icon:Mountain,tone:"blue"},
-{name:"Animales",icon:Horse,tone:"lilac"},
+{name:"Animales",icon:PawPrin,tone:"lilac"},
 {name:"Retratos",icon:UserRound,tone:"sand"}
 ];
 const WA=import.meta.env.VITE_WHATSAPP||"529615712134";
