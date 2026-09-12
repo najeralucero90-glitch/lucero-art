@@ -7,7 +7,7 @@ const cats=[
 {name:"Dibujos disponibles",icon:Flower2,tone:"pink"},
 {name:"Dibujos personalizados",icon:PawPrint,tone:"green"},
 {name:"Paisajes",icon:Mountain,tone:"blue"},
-{name:"Animales",icon:PawPrin,tone:"lilac"},
+{name:"Animales",icon:PawPrint,tone:"lilac"},
 {name:"Retratos",icon:UserRound,tone:"sand"}
 ];
 const WA=import.meta.env.VITE_WHATSAPP||"529615712134";
