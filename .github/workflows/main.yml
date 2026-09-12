@@ -1,10 +1,10 @@
-name: build Lucero Art APK
+name: build Lucero Art APK 
 
 on:
   workflow_dispatch:
   push:
     branches:
-     -	main
+      -	main
 
 jobs:
   build-android:
