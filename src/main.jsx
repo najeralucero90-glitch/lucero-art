@@ -2,6 +2,20 @@ import React,{useEffect,useMemo,useState}from"react";
 import{createRoot}from"react-dom/client";
 import{Menu,Bell,Heart,ArrowRight,Home,Palette,Pencil,MessageCircle,UserRound,Flower2,PawPrint,Mountain,Search,X,ShoppingBag,Trash2,CheckCircle,Plus,Settings,LogOut,Phone,Package,ChevronLeft,Lock,User,Truck,CreditCard}from"lucide-react";
 import"./styles.css";
+// Código para mostrar errores de JavaScript en pantalla durante la prueba
+window.addEventListener("error", (e) => {
+  document.body.innerHTML =
+    "<pre style='padding:20px;color:red;white-space:pre-wrap'>" +
+    (e.error?.stack || e.message) +
+    "</pre>";
+});
+
+window.addEventListener("unhandledrejection", (e) => {
+  document.body.innerHTML =
+    "<pre style='padding:20px;color:red;white-space:pre-wrap'>" +
+    (e.reason?.stack || e.reason) +
+    "</pre>";
+});
 
 const cats=[
 {name:"Dibujos disponibles",icon:Flower2,tone:"pink"},
