@@ -42,7 +42,7 @@ function App(){
  const[cart,setCart]=useState(()=>JSON.parse(localStorage.getItem("la-cart")||"[]")),[selected,setSelected]=useState(null),[toast,setToast]=useState("");
  const[user,setUser]=useState(()=>JSON.parse(localStorage.getItem("la-user")||"null")),[auth,setAuth]=useState(null),[orders,setOrders]=useState([]),[admin,setAdmin]=useState(false);
  const notify=t=>{setToast(t);setTimeout(()=>setToast(""),2800)};
- useEffect(()=>{api("/api/products").then(d=>setProducts(d.products)).catch(()=>notify("No se pudo cargar el catálogo"))},[]);
+ useEffect(()=>{api("/api/products").then(d=>setProducts(d.products||[])).catch(()=>{setProducts([]);notify("No se pudo cargar el catálogo")})},[]);
  useEffect(()=>localStorage.setItem("la-fav",JSON.stringify(favorites)),[favorites]);
  useEffect(()=>localStorage.setItem("la-cart",JSON.stringify(cart)),[cart]);
  useEffect(()=>{if(user){api("/api/orders",{headers:{Authorization:`Bearer ${user.token}`}}).then(d=>setOrders(d.orders)).catch(()=>{})}},[user]);
